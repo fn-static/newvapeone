@@ -45,14 +45,16 @@ function updateCart() {
 
 function renderPayPalButton(totalCost) {
     // Clear existing PayPal buttons if any
-    document.getElementById('paypal-button-container').innerHTML = '';
+    const paypalButtonContainer = document.getElementById('paypal-button-container');
+    paypalButtonContainer.innerHTML = ''; // Clear existing buttons
 
+    // Render PayPal button
     paypal.Buttons({
         createOrder: function(data, actions) {
             return actions.order.create({
                 purchase_units: [{
                     amount: {
-                        value: totalCost.toFixed(2), // Używamy toFixed(2) dla precyzyjnych wartości
+                        value: totalCost.toFixed(2), // Use fixed-point notation for accurate total
                         currency_code: 'PLN'
                     }
                 }]
@@ -64,5 +66,5 @@ function renderPayPalButton(totalCost) {
                 clearCart();
             });
         }
-    }).render('#paypal-button-container');
+    }).render(paypalButtonContainer); // Render button in the specified container
 }

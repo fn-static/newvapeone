@@ -87,3 +87,24 @@ button:hover {
 #paypal-button-container {
     margin-top: 20px;
 }
+
+
+/* Responsywność dla mniejszych ekranów */
+@media (max-width: 600px) {
+    .product-grid {
+        flex-direction: column;
+    }
+
+    .product {
+        flex: 1 1 100%; /* Produkty zajmują pełną szerokość kontenera */
+        margin-bottom: 10px;
+    }
+
+    .large-product {
+        font-size: 1em;
+    }
+
+    button {
+        padding: 6px; /* Mniejsze przyciski na mniejszych ekranach */
+    }
+}
