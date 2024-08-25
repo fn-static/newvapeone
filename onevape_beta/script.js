@@ -48,7 +48,8 @@ function renderPayPalButton(totalCost) {
             return actions.order.create({
                 purchase_units: [{
                     amount: {
-                        value: totalCost.toString()
+                        value: totalCost.toString(),
+                        currency_code: 'PLN' // Dodano walutę PLN
                     }
                 }]
             });
