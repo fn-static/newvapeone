@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sklep z Jednorazówkami</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://www.paypal.com/sdk/js?client-id=AVT3igJ-vJsaVmcvPQ9Xal7kaFhJcwsz_3EFHYZYYplry5g6QVib1Va9o2H1YgJvWBrN86RtTruWXfQi"></script> <!-- Dodaj swój PayPal Client ID -->
+</head>
+<body>
+    <header>
+        <h1>Sklep z Jednorazówkami</h1>
+    </header>
+    <main>
+        <section id="najnowszy-produkt">
+            <h2>Najnowszy Produkt</h2>
+            <div class="product">
+                <h3>Jednorazówka XYZ</h3>
+                <p>Cena: 10 PLN</p>
+                <button onclick="addToCart(0)">Dodaj do koszyka</button>
+            </div>
+        </section>
+
+        <section id="wszystkie-produkty">
+            <h2>Wszystkie Produkty</h2>
+            <div class="product">
+                <h3>Jednorazówka XYZ</h3>
+                <p>Cena: 10 PLN</p>
+                <button onclick="addToCart(0)">Dodaj do koszyka</button>
+            </div>
+            <div class="product">
+                <h3>Jednorazówka ABC</h3>
+                <p>Cena: 15 PLN</p>
+                <button onclick="addToCart(1)">Dodaj do koszyka</button>
+            </div>
+        </section>
+
+        <section id="koszyk">
+            <h2>Koszyk</h2>
+            <div id="cart-items"></div>
+            <p>Łączna kwota: <span id="total-cost">0</span> PLN</p>
+            <button onclick="clearCart()">Wyczyść koszyk</button>
+            <div id="paypal-button-container"></div>
+        </section>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>
