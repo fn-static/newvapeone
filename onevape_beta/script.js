@@ -35,21 +35,25 @@ function updateCart() {
 
     totalCostElement.innerText = totalCost;
 
+    // Render the PayPal button only if there are items in the cart
     if (cart.length > 0) {
         renderPayPalButton(totalCost);
     } else {
-        document.getElementById('paypal-button-container').innerHTML = '';
+        document.getElementById('paypal-button-container').innerHTML = ''; // Clear the PayPal button container
     }
 }
 
 function renderPayPalButton(totalCost) {
+    // Clear existing PayPal buttons if any
+    document.getElementById('paypal-button-container').innerHTML = '';
+
     paypal.Buttons({
         createOrder: function(data, actions) {
             return actions.order.create({
                 purchase_units: [{
                     amount: {
-                        value: totalCost.toString(),
-                        currency_code: 'PLN' // Dodano walutę PLN
+                        value: totalCost.toFixed(2), // Używamy toFixed(2) dla precyzyjnych wartości
+                        currency_code: 'PLN'
                     }
                 }]
             });
